@@ -23,7 +23,7 @@ namespace kinectUS
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage : Page, INotifyPropertyChanged
     {
 
         /// <summary>
@@ -71,7 +71,42 @@ namespace kinectUS
         private const int BytesPerPixel = 4;
 
         private KinectSensor kinectSensor = null;
+        private string statusText = null;
         private WriteableBitmap bitmap = null;
+        private FrameDescription currentFrameDescription;
+        //Infrared Frame variables...
+        public event PropertyChangedEventHandler PropertyChanged;
+        public string StatusText
+        {
+            get { return this.statusText;  }
+            set
+            {
+                if (this.statusText !=  value)
+                {
+                    this.statusText = value;
+                    if (this.PropertyChanged != null)
+                    {
+                        this.PropertyChanged(this, new PropertyChangedEventArgs("StatusText"));
+                    }
+                }
+            }
+        }
+
+        public FrameDescription CurrentFrameDescription
+        {
+            get { return this.currentFrameDescription; }
+            set
+            {
+                if (this. currentFrameDescription!=value)
+                {
+                    this.currentFrameDescription = value;
+                    if (this.PropertyChanged != null)
+                    {
+                        this.PropertyChanged(this, new PropertyChangedEventArgs("CurrentFrameDescription"));
+                    }
+                }
+            }
+        }
 
         //Infrared Frame
         private InfraredFrameReader infraredFrameReader = null;
@@ -111,12 +146,26 @@ namespace kinectUS
                 new WriteableBitmap(infraredFrameDescription.Width,
                 infraredFrameDescription.Height);
 
+            this.CurrentFrameDescription = infraredFrameDescription;
+
+            // set IsAvailableChanged event notifier
+            this.kinectSensor.IsAvailableChanged += this.Sensor_IsAvailableChanged;
+
+            // use the window object as the view model in this example
+            this.DataContext = this;
+
             // open the sensor
             this.kinectSensor.Open();
 
             this.InitializeComponent();
         }
 
+        private void Sensor_IsAvailableChanged(KinectSensor sender,
+         IsAvailableChangedEventArgs args)
+        {
+            this.StatusText = this.kinectSensor.IsAvailable ?
+                 "Running" : "Not Available";
+        }
 
         private void Reader_InfraredFrameArrived(object sender,
             InfraredFrameArrivedEventArgs e)
@@ -207,5 +256,9 @@ namespace kinectUS
             }
         }
 
+        private void textBlock1_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

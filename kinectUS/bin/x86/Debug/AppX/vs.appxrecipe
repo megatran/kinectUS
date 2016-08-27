@@ -34,7 +34,7 @@
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\nhant\Documents\slashHack2016\kinectUS\kinectUS\bin\x86\Debug\kinectUS.exe">
       <PackagePath>kinectUS.exe</PackagePath>
-      <Modified>2016-08-27T21:48:40.301</Modified>
+      <Modified>2016-08-27T22:29:54.428</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nhant\Documents\slashHack2016\kinectUS\kinectUS\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
@@ -58,7 +58,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nhant\Documents\slashHack2016\kinectUS\kinectUS\bin\x86\Debug\kinectUS.xr.xml">
       <PackagePath>kinectUS.xr.xml</PackagePath>
-      <Modified>2016-08-27T21:47:05.523</Modified>
+      <Modified>2016-08-27T22:29:54.352</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nhant\Documents\slashHack2016\kinectUS\kinectUS\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
@@ -66,7 +66,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nhant\Documents\slashHack2016\kinectUS\kinectUS\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2016-08-27T21:47:05.532</Modified>
+      <Modified>2016-08-27T22:29:54.360</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\nhant\Documents\slashHack2016\kinectUS\kinectUS\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
