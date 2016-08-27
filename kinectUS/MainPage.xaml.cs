@@ -20,11 +20,20 @@ using System.ComponentModel;
 
 namespace kinectUS
 {
+    public enum DisplayFrameType
+    {
+        Infrared,
+        Color
+    }
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class MainPage : Page, INotifyPropertyChanged
     {
+        private const DisplayFrameType DEFAULT_DISPLAYFRAMETYPE = DisplayFrameType.Color;
+        //private FrameDescription currentFrameDescription;
+        private DisplayFrameType currentDisplayFrameType;
+        private MultiSourceFrameReader multiSourceFrameReader = null;
 
         /// <summary>
         /// The highest value that can be returned in the InfraredFrame.
@@ -91,7 +100,7 @@ namespace kinectUS
                 }
             }
         }
-
+        
         public FrameDescription CurrentFrameDescription
         {
             get { return this.currentFrameDescription; }
@@ -118,6 +127,15 @@ namespace kinectUS
 
             // one sensor is currently supported
             this.kinectSensor = KinectSensor.GetDefault();
+
+            SetupCurrentDisplay(DEFAULT_DISPLAYFRAMETYPE);
+
+            this.multiSourceFrameReader =
+                this.kinectSensor.OpenMultiSourceFrameReader(
+                 FrameSourceTypes.Infrared | FrameSourceTypes.Color);
+
+            this.multiSourceFrameReader.MultiSourceFrameArrived +=
+                this.Reader_MultiSourceFrameArrived;
 
             // get the infraredFrameDescription from the
             // InfraredFrameSource
@@ -256,9 +274,156 @@ namespace kinectUS
             }
         }
 
+        private void SetupCurrentDisplay(DisplayFrameType newDisplayFrameType)
+        {
+            currentDisplayFrameType = newDisplayFrameType;
+            switch (currentDisplayFrameType)
+            {
+                case DisplayFrameType.Infrared:
+                    FrameDescription infraredFrameDescription =
+                         this.kinectSensor.InfraredFrameSource.FrameDescription;
+                    this.CurrentFrameDescription = infraredFrameDescription;
+                    // allocate space to put the pixels being 
+                    // received and converted
+                    this.infraredFrameData =
+                        new ushort[infraredFrameDescription.Width *
+                          infraredFrameDescription.Height];
+                    this.infraredPixels =
+                        new byte[infraredFrameDescription.Width *
+                          infraredFrameDescription.Height * BytesPerPixel];
+                    this.bitmap =
+                        new WriteableBitmap(infraredFrameDescription.Width,
+                          infraredFrameDescription.Height);
+                    break;
+
+                case DisplayFrameType.Color:
+                    FrameDescription colorFrameDescription =
+                 this.kinectSensor.ColorFrameSource.FrameDescription;
+                    this.CurrentFrameDescription = colorFrameDescription;
+                    // create the bitmap to display
+                    this.bitmap =
+                        new WriteableBitmap(colorFrameDescription.Width,
+                 colorFrameDescription.Height);
+                    break;
+
+                default:
+                    break;
+            }
+        }
+        private void Reader_MultiSourceFrameArrived(
+            MultiSourceFrameReader sender,
+            MultiSourceFrameArrivedEventArgs e)
+        {
+            MultiSourceFrame multiSourceFrame = e.FrameReference.AcquireFrame();
+
+            // If the Frame has expired by the time we process this event, return.
+            if (multiSourceFrame == null)
+            {
+                return;
+            }
+
+            switch (currentDisplayFrameType)
+            {
+                case DisplayFrameType.Infrared:
+                    using (InfraredFrame infraredFrame =
+                 multiSourceFrame.InfraredFrameReference.AcquireFrame())
+                    {
+                        ShowInfraredFrame(infraredFrame);
+                    }
+                    break;
+                case DisplayFrameType.Color:
+                    using (ColorFrame colorFrame =
+                 multiSourceFrame.ColorFrameReference.AcquireFrame())
+                    {
+                        ShowColorFrame(colorFrame);
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void ShowInfraredFrame(InfraredFrame infraredFrame)
+        {
+            bool infraredFrameProcessed = false;
+
+            if (infraredFrame != null)
+            {
+                FrameDescription infraredFrameDescription =
+                infraredFrame.FrameDescription;
+
+                // verify data and write the new infrared frame data to the display bitmap
+                if (((infraredFrameDescription.Width * infraredFrameDescription.Height)
+                == this.infraredFrameData.Length) &&
+                    (infraredFrameDescription.Width == this.bitmap.PixelWidth) &&
+                (infraredFrameDescription.Height == this.bitmap.PixelHeight))
+                {
+                    // Copy the pixel data from the image to a temporary array
+                    infraredFrame.CopyFrameDataToArray(this.infraredFrameData);
+
+                    infraredFrameProcessed = true;
+                }
+            }
+
+            // we got a frame, convert and render
+            if (infraredFrameProcessed)
+            {
+                this.ConvertInfraredDataToPixels();
+                this.RenderPixelArray(this.infraredPixels);
+            }
+        }
+
+        private void ShowColorFrame(ColorFrame colorFrame)
+        {
+            bool colorFrameProcessed = false;
+
+            if (colorFrame != null)
+            {
+                FrameDescription colorFrameDescription =
+                    colorFrame.FrameDescription;
+
+                // verify data and write the new color frame data to 
+                // the Writeable bitmap
+                if ((colorFrameDescription.Width ==
+                    this.bitmap.PixelWidth) &&
+             (colorFrameDescription.Height == this.bitmap.PixelHeight))
+                {
+                    if (colorFrame.RawColorImageFormat == ColorImageFormat.Bgra)
+                    {
+                        colorFrame.CopyRawFrameDataToBuffer(
+                            this.bitmap.PixelBuffer);
+                    }
+                    else
+                    {
+                        colorFrame.CopyConvertedFrameDataToBuffer(
+                            this.bitmap.PixelBuffer,
+                 ColorImageFormat.Bgra);
+                    }
+
+                    colorFrameProcessed = true;
+                }
+            }
+
+            if (colorFrameProcessed)
+            {
+                this.bitmap.Invalidate();
+                FrameDisplayImage.Source = this.bitmap;
+            }
+        }
+
         private void textBlock1_SelectionChanged(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void InfraredButton_Click(object sender, RoutedEventArgs e)
+        {
+            SetupCurrentDisplay(DisplayFrameType.Infrared);
+        }
+
+        private void ColorButton_Click(object sender, RoutedEventArgs e)
+        {
+            SetupCurrentDisplay(DisplayFrameType.Color);
         }
     }
 }
