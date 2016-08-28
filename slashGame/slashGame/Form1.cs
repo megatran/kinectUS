@@ -85,19 +85,34 @@ namespace slashGame {
             
         }
 
+        EndgameDialog dl;
         private void inputTimer_Tick(object sender, EventArgs e) {
             if(keyToggles[0]) p1.move(-10, 0);
             if(keyToggles[1]) p1.move(10, 0);
             if(keyToggles[2]) 
                 if(p1Ticker <= 0) {
-                    if(p2.Attack(p1.getAttack() * getDamageDelt())) { Console.WriteLine("Player 1 Won!!"); Application.Exit(); }
+                    if(p2.Attack(p1.getAttack() * getDamageDelt())) {
+                        Console.WriteLine("Player 1 Won!!");
+                        dl = new EndgameDialog();
+                        dl.Show();
+                        dl.announce("One");
+                        this.renderTimer.Stop();
+                        this.inputTimer.Stop();
+                    }
                     p1Ticker = 5;
                 }
             if(keyToggles[3]) p2.move(-10, 0);
             if(keyToggles[4]) p2.move(10, 0);
             if(keyToggles[5]) 
                 if(p2Ticker <= 0) {
-                    if(p1.Attack(p2.getAttack() * getDamageDelt())) { Console.WriteLine("Player 2 Won!!"); Application.Exit(); }
+                    if(p1.Attack(p2.getAttack() * getDamageDelt())) {
+                        Console.WriteLine("Player 2 Won!!");
+                        dl = new EndgameDialog();
+                        dl.Show();
+                        dl.announce("Two");
+                        this.renderTimer.Stop();
+                        this.inputTimer.Stop();
+                    }
                     p2Ticker = 5;
                 }
             if(p1Ticker > 0) p1Ticker--;
@@ -141,28 +156,15 @@ namespace slashGame {
             return retval;
         }
         setupUI fSetup;
-        private void setupToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        if (fSetup == null || fSetup.IsDisposed )
-            {
+        private void setupToolStripMenuItem_Click(object sender, EventArgs e) {
+            if (fSetup == null || fSetup.IsDisposed ) {
                 fSetup = new setupUI();
                 fSetup.f1Parent = this;
                 fSetup.Show();
-            }
-            else
-            {
+            } else {
                 fSetup.BringToFront(); 
             }
-       
         }
-
-     
-
-      
-
-
-       
-
 
     }
 }

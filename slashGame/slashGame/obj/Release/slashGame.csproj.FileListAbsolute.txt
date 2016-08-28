@@ -6,3 +6,5 @@ C:\Users\Egon Gilstrom\Desktop\slashack\slashGame\slashGame\obj\Release\slashGam
 C:\Users\Egon Gilstrom\Desktop\slashack\slashGame\slashGame\obj\Release\slashGame.csproj.GenerateResource.Cache
 C:\Users\Egon Gilstrom\Desktop\slashack\slashGame\slashGame\obj\Release\slashGame.exe
 C:\Users\Egon Gilstrom\Desktop\slashack\slashGame\slashGame\obj\Release\slashGame.pdb
+C:\Users\Egon Gilstrom\Desktop\slashack\slashGame\slashGame\obj\Release\slashGame.csprojResolveAssemblyReference.cache
+C:\Users\Egon Gilstrom\Desktop\slashack\slashGame\slashGame\obj\Release\slashGame.setupUI.resources
