@@ -7,7 +7,7 @@
         /// </summary>
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.PictureBox frame;
-        private System.Windows.Forms.Timer time1;
+        private System.Windows.Forms.Timer renderTimer, inputTimer;
         private System.Drawing.Point defaultWinSize;
 
         /// <summary>
@@ -32,7 +32,8 @@
             this.defaultWinSize = new System.Drawing.Point(1400, 740);
             this.components = new System.ComponentModel.Container();
             this.frame = new System.Windows.Forms.PictureBox();
-            this.time1 = new System.Windows.Forms.Timer(this.components);
+            this.renderTimer = new System.Windows.Forms.Timer(this.components);
+            this.inputTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.frame)).BeginInit();
             this.SuspendLayout();
 
@@ -43,7 +44,8 @@
             this.frame.TabIndex = 0;
             this.frame.TabStop = false;
 
-            this.time1.Tick += new System.EventHandler(this.time1_Tick);
+            this.renderTimer.Tick += new System.EventHandler(this.renderTimer_Tick);
+            this.inputTimer.Tick += new System.EventHandler(this.inputTimer_Tick);
 
             // 
             // Form1
