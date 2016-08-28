@@ -1,0 +1,8 @@
+C:\Users\Egon Gilstrom\Desktop\slashack\slashGame\slashGame\bin\Release\slashGame.exe.config
+C:\Users\Egon Gilstrom\Desktop\slashack\slashGame\slashGame\bin\Release\slashGame.exe
+C:\Users\Egon Gilstrom\Desktop\slashack\slashGame\slashGame\bin\Release\slashGame.pdb
+C:\Users\Egon Gilstrom\Desktop\slashack\slashGame\slashGame\obj\Release\slashGame.Form1.resources
+C:\Users\Egon Gilstrom\Desktop\slashack\slashGame\slashGame\obj\Release\slashGame.Properties.Resources.resources
+C:\Users\Egon Gilstrom\Desktop\slashack\slashGame\slashGame\obj\Release\slashGame.csproj.GenerateResource.Cache
+C:\Users\Egon Gilstrom\Desktop\slashack\slashGame\slashGame\obj\Release\slashGame.exe
+C:\Users\Egon Gilstrom\Desktop\slashack\slashGame\slashGame\obj\Release\slashGame.pdb

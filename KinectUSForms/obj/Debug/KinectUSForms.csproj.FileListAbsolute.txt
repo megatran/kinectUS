@@ -1,0 +1,11 @@
+C:\dev\kinectUS\KinectUSForms\bin\Debug\KinectUSForms.exe.config
+C:\dev\kinectUS\KinectUSForms\bin\Debug\KinectUSForms.exe
+C:\dev\kinectUS\KinectUSForms\bin\Debug\KinectUSForms.pdb
+C:\dev\kinectUS\KinectUSForms\obj\Debug\KinectUSForms.csprojResolveAssemblyReference.cache
+C:\dev\kinectUS\KinectUSForms\obj\Debug\KinectUSForms.Properties.Resources.resources
+C:\dev\kinectUS\KinectUSForms\obj\Debug\KinectUSForms.csproj.GenerateResource.Cache
+C:\dev\kinectUS\KinectUSForms\obj\Debug\KinectUSForms.exe
+C:\dev\kinectUS\KinectUSForms\obj\Debug\KinectUSForms.pdb
+C:\dev\kinectUS\KinectUSForms\obj\Debug\KinectUSForms.Form1.resources
+C:\dev\kinectUS\KinectUSForms\obj\Debug\KinectUSForms.TCPconnectFormcs.resources
+C:\dev\kinectUS\KinectUSForms\obj\Debug\KinectUSForms.tcpStatusForm.resources

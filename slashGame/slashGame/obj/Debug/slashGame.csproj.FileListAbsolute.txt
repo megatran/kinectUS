@@ -1,18 +1,9 @@
-c:\users\egon gilstrom\documents\visual studio 2015\Projects\slashGame\slashGame\bin\Debug\slashGame.exe.config
-c:\users\egon gilstrom\documents\visual studio 2015\Projects\slashGame\slashGame\bin\Debug\slashGame.exe
-c:\users\egon gilstrom\documents\visual studio 2015\Projects\slashGame\slashGame\bin\Debug\slashGame.pdb
-c:\users\egon gilstrom\documents\visual studio 2015\Projects\slashGame\slashGame\obj\Debug\slashGame.csprojResolveAssemblyReference.cache
-c:\users\egon gilstrom\documents\visual studio 2015\Projects\slashGame\slashGame\obj\Debug\slashGame.Form1.resources
-c:\users\egon gilstrom\documents\visual studio 2015\Projects\slashGame\slashGame\obj\Debug\slashGame.Properties.Resources.resources
-c:\users\egon gilstrom\documents\visual studio 2015\Projects\slashGame\slashGame\obj\Debug\slashGame.csproj.GenerateResource.Cache
-c:\users\egon gilstrom\documents\visual studio 2015\Projects\slashGame\slashGame\obj\Debug\slashGame.exe
-c:\users\egon gilstrom\documents\visual studio 2015\Projects\slashGame\slashGame\obj\Debug\slashGame.pdb
-C:\Users\Egon Gilstrom\Desktop\slashack\slashGame\slashGame\bin\Debug\slashGame.exe.config
-C:\Users\Egon Gilstrom\Desktop\slashack\slashGame\slashGame\obj\Debug\slashGame.exe
-C:\Users\Egon Gilstrom\Desktop\slashack\slashGame\slashGame\obj\Debug\slashGame.pdb
-C:\Users\Egon Gilstrom\Desktop\slashack\slashGame\slashGame\obj\Debug\slashGame.csprojResolveAssemblyReference.cache
-C:\Users\Egon Gilstrom\Desktop\slashack\slashGame\slashGame\obj\Debug\slashGame.Form1.resources
-C:\Users\Egon Gilstrom\Desktop\slashack\slashGame\slashGame\obj\Debug\slashGame.Properties.Resources.resources
-C:\Users\Egon Gilstrom\Desktop\slashack\slashGame\slashGame\obj\Debug\slashGame.csproj.GenerateResource.Cache
-C:\Users\Egon Gilstrom\Desktop\slashack\slashGame\slashGame\bin\Debug\slashGame.exe
-C:\Users\Egon Gilstrom\Desktop\slashack\slashGame\slashGame\bin\Debug\slashGame.pdb
+C:\dev\kinectUS\slashGame\slashGame\bin\Debug\slashGame.exe.config
+C:\dev\kinectUS\slashGame\slashGame\bin\Debug\slashGame.exe
+C:\dev\kinectUS\slashGame\slashGame\bin\Debug\slashGame.pdb
+C:\dev\kinectUS\slashGame\slashGame\obj\Debug\slashGame.Form1.resources
+C:\dev\kinectUS\slashGame\slashGame\obj\Debug\slashGame.Properties.Resources.resources
+C:\dev\kinectUS\slashGame\slashGame\obj\Debug\slashGame.setupUI.resources
+C:\dev\kinectUS\slashGame\slashGame\obj\Debug\slashGame.csproj.GenerateResource.Cache
+C:\dev\kinectUS\slashGame\slashGame\obj\Debug\slashGame.exe
+C:\dev\kinectUS\slashGame\slashGame\obj\Debug\slashGame.pdb

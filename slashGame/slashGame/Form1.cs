@@ -37,6 +37,7 @@ namespace slashGame {
             p2.parentSize.X = this.Width; p2.parentSize.Y = this.Height;
         }
 
+
         public  void keyUpListener(object sender, KeyEventArgs e) {
             switch((int) e.KeyCode) {
                 case 65://a

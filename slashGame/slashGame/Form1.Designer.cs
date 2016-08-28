@@ -8,7 +8,9 @@
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.PictureBox frame;
         private System.Windows.Forms.Timer renderTimer, inputTimer;
-      
+
+        private System.Drawing.Point defaultWinSize;
+ 
 
         /// <summary>
         /// Clean up any resources being used.
@@ -31,12 +33,15 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.frame = new System.Windows.Forms.PictureBox();
-
+ 
 
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 
+            this.renderTimer = new System.Windows.Forms.Timer(this.components);
+            this.inputTimer = new System.Windows.Forms.Timer(this.components);
+ 
             this.renderTimer = new System.Windows.Forms.Timer(this.components);
             this.inputTimer = new System.Windows.Forms.Timer(this.components);
 
