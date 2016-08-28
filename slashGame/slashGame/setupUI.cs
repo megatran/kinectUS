@@ -68,12 +68,17 @@ namespace slashGame
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (int.TryParse(this.tbListenPort.Text,  out SelectedListenPort) ) { 
             Thread t = new Thread(new ThreadStart(ListenThread));
             t.Start();
+            }
         }
+
+        public int SelectedListenPort;
 
         public void ListenThread()
         {
+            
             // Create an instance of the TcpListener class.
             if (tcpListener != null)
                 return;
@@ -81,7 +86,7 @@ namespace slashGame
             {
                 // Set the listener on the local IP address 
                 // and specify the port.
-                tcpListener = new TcpListener(myIp, 32767);
+                tcpListener = new TcpListener(myIp, SelectedListenPort);
                 tcpListener.Start();
                 //     this.textBox2.Invoke(
                 //           new MethodInvoker(delegate
@@ -122,9 +127,13 @@ namespace slashGame
                 for (int i = 0; i < s.Length; i++)
                 {
                    
-                    KeyEventArgs MyKey = new KeyEventArgs(Keys.W);
+                    KeyEventArgs MyKey = new KeyEventArgs(Keys.D);
                     if (f1Parent != null)
+                    {
                         f1Parent.keyDownListener(null, MyKey);
+                        System.Threading.Thread.Sleep(50); 
+                        f1Parent.keyUpListener(null, MyKey);
+                    }
                 }        
                
             
