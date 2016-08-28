@@ -87,8 +87,8 @@ namespace slashGame {
         }
 
         public void move(int xoff, int yoff) {
-            if(dims.X + xoff >= 0 && dims.X + xoff + dims.Width < parentSize.X) this.dims.X += xoff;
-            if(dims.Y + yoff >= 0 && dims.Y + yoff + dims.Height < parentSize.Y)this.dims.Y += yoff;
+            if(dims.X + xoff > 10 && dims.X + xoff + dims.Width < parentSize.X) this.dims.X += xoff;
+            if(dims.Y + yoff > 10 && dims.Y + yoff + dims.Height < parentSize.Y)this.dims.Y += yoff;
         }
 
         public void rotateSprite(float angle) {//contains slight blur prevention
