@@ -63,7 +63,10 @@
                         FrameSelectorButtonStyle}" 
                         Click="ColorButton_Click"/>
                     <Button Content="Depth" Style="{StaticResource FrameSelectorButtonStyle}" Click="DepthButton_Click"/>
-
+                    <Button Style="{StaticResource FrameSelectorButtonStyle}"
+                Click="BodyMask_Click">
+                        <TextBlock Text="Body Mask" TextWrapping="Wrap"/>
+                    </Button>
                 </StackPanel>
             </ScrollViewer>
             <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="437,113,0,0" Grid.Row="1" TextWrapping="Wrap" Text="hi Nhan" VerticalAlignment="Top" Height="179" Width="286" FontSize="72" SelectionChanged="textBlock1_SelectionChanged" Foreground="#FF52E830"/>

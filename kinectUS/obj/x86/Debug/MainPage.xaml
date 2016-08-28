@@ -63,7 +63,10 @@
                         FrameSelectorButtonStyle}" 
                                                  />
                     <Button x:ConnectionId='4' Content="Depth" Style="{StaticResource FrameSelectorButtonStyle}"                          />
-
+                    <Button x:ConnectionId='5' Style="{StaticResource FrameSelectorButtonStyle}"
+                                      >
+                        <TextBlock Text="Body Mask" TextWrapping="Wrap"/>
+                    </Button>
                 </StackPanel>
             </ScrollViewer>
             <TextBlock x:ConnectionId='1' x:Name="textBlock1" HorizontalAlignment="Left" Margin="437,113,0,0" Grid.Row="1" TextWrapping="Wrap" Text="hi Nhan" VerticalAlignment="Top" Height="179" Width="286" FontSize="72"                                                Foreground="#FF52E830"/>
