@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+using System.Net.Sockets;
+using System.Threading; 
 
 namespace slashGame {
     public partial class Form1 : Form {
@@ -30,7 +33,7 @@ namespace slashGame {
             
         }
 
-        private void keyDownListener(object sender, KeyEventArgs e) {
+        public  void keyDownListener(object sender, KeyEventArgs e) {
             switch((int) e.KeyCode) {
                 case 87://w
                     p1.move(0, -10);
@@ -90,5 +93,29 @@ namespace slashGame {
             Console.WriteLine("Damage Value Determined To Be {0}", retval);
             return retval;
         }
+        setupUI fSetup;
+        private void setupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        if (fSetup == null || fSetup.IsDisposed )
+            {
+                fSetup = new setupUI();
+                fSetup.f1Parent = this;
+                fSetup.Show();
+            }
+            else
+            {
+                fSetup.BringToFront(); 
+            }
+       
+        }
+
+     
+
+      
+
+
+       
+
+
     }
 }
